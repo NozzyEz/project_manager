@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Nav from './components/Nav';
+import Nav from "./components/Nav";
 export default {
 	components: {
 		Nav,
@@ -47,7 +47,7 @@ a {
 }
 
 button {
-	background-color: purple;
+	background-color: rgb(0, 128, 113);
 	color: white;
 	padding: 1.5rem 2.5rem;
 	border: none;
