@@ -28,7 +28,9 @@ const state = {
   ],
 };
 
-const getters = {};
+const getters = {
+  allFolders: state => state.folders,
+};
 
 const actions = {};
 

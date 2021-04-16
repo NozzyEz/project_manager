@@ -10,14 +10,14 @@ import Projects from "../components/Projects";
 import Folders from "../components/Folders";
 export default {
 	name: "Home",
-	components: { Projects, Folders },
+	components: { Projects, Folders }
 };
 </script>
 
 <style lang="scss">
 .app-container {
 	padding: 5rem;
-	background-color: #233b40;
+	background: linear-gradient(150deg, #233b40, #47767f);
 	min-height: 92vh;
 	color: white;
 	display: flex;

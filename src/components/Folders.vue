@@ -5,21 +5,20 @@
       <button>Create new</button>
     </div>
 		<div class="container">
-      <FolderItem />
-      <FolderItem />
-      <FolderItem />
-      <FolderItem />
+      <FolderItem v-for="folder in allFolders" :key="folder.id" :folder="folder"/>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import FolderItem from "./FolderItem";
 export default {
 	name: "Folders",
 	components: {
 		FolderItem,
 	},
+	computed: mapGetters(["allFolders"]),
 };
 </script>
 
