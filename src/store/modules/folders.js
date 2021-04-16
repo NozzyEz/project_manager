@@ -1,44 +1,40 @@
-// import axios from "axios";
+import axios from "axios";
 
 const state = {
-  //! Debug Data
-  folders: [
-    {
-      type: "project-folder",
-      id: "87b5ab39-80a9-4614-a760-56ce1aa43ef1",
-      attributes: {
-        name: "nozzy_folder_1",
-        total_projects: 0,
-        created_at: "2021-04-13T05:27:39.000000Z",
-        updated_at: "2021-04-13T05:27:39.000000Z",
-      },
-      relationships: [],
-    },
-    {
-      type: "project-folder",
-      id: "3638b57a-50de-452e-be13-f61ba4c37667",
-      attributes: {
-        name: "nozzy folder 2",
-        total_projects: 0,
-        created_at: "2021-04-12T08:23:33.000000Z",
-        updated_at: "2021-04-12T08:23:33.000000Z",
-      },
-      relationships: [],
-    },
-  ],
+	folders: [],
+	activeFolder: {},
 };
 
 const getters = {
-  allFolders: state => state.folders,
+	allFolders: state => state.folders,
 };
 
-const actions = {};
+const actions = {
+	async fetchFolders({commit, rootGetters}) {
+		// console.log(localStorage.getItem("authToken"));
+		try {
+			const response = await axios.get(rootGetters.getFoldersURL, {
+				headers: {
+					Authorization: "Bearer " + rootGetters.getAccessToken,
+				},
+			});
+			// console.log(response.data.data);
+			commit("setFolders", response.data.data);
+		} catch (err) {
+			console.log(err);
+		}
+	},
+};
 
-const mutations = {};
+const mutations = {
+	setFolders: (state, folders) => {
+		state.folders = folders;
+	},
+};
 
 export default {
-  state,
-  getters,
-  actions,
-  mutations,
+	state,
+	getters,
+	actions,
+	mutations,
 };

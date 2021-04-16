@@ -1,26 +1,29 @@
-<template lang="">
-  <div class="projects">
-    <div class="title-bar">
-      <h3>Projects</h3>
-    </div>
+<template>
+	<div class="projects">
+		<div class="title-bar">
+			<h3>Projects</h3>
+		</div>
 		<div class="container">
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-      <ProjectItem />
-    </div>
-  </div>
+			<ProjectItem
+				v-for="project in allProjects"
+				:key="project.id"
+				:project="project"
+			/>
+		</div>
+	</div>
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex";
 import ProjectItem from "./ProjectItem";
 export default {
 	name: "Projects",
 	components: {
 		ProjectItem
+	},
+	methods: { ...mapActions(["fetchProjects"]) },
+	computed: mapGetters(["allProjects"]),
+	created() {
+		this.fetchProjects();
 	}
 };
 </script>
@@ -38,7 +41,8 @@ export default {
 	.container {
 		padding-top: 2rem;
 		display: flex;
-		justify-content: flex-start;
+		justify-content: space-evenly;
+		align-items: flex-start;
 		flex-wrap: wrap;
 	}
 }

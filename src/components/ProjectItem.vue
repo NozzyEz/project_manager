@@ -1,7 +1,7 @@
 <template lang="">
   <div class="card">
     <div class="header">
-      <h4>Some name</h4>
+      <h4>{{project.attributes.name}}</h4>
     </div>
 		<div class="info"></div>
   </div>
@@ -9,6 +9,12 @@
 <script>
 export default {
 	name: "ProjectItem",
+	props: {
+		project: Object
+	}
+	// created() {
+	// 	console.log(this.project);
+	// }
 };
 </script>
 <style lang="scss" scoped>
@@ -16,8 +22,8 @@ export default {
 	background: rgba(255, 255, 255, 0.8);
 	color: #000;
 	height: 30rem;
-	max-width: 29rem;
-	flex: 1 1 30rem;
+	max-width: 50rem;
+	flex: 1 1 50rem;
 	margin: 2rem 3rem;
 	padding: 2rem;
 	border-radius: 2rem;

@@ -1,23 +1,25 @@
-<template lang="">
-  <div class="card">
-    <div class="header">
-      <img :src="folderIcon" alt="">
-      <div class="title">
-        <h4>{{folder.attributes.name}}</h4>
-				<p>{{folder.type}}</p>
-      </div>
-    </div>
-		<div class="info">
-			<div>
-				<p><span>total projects</span></p>
-				<p>{{folder.attributes.total_projects}}</p>
+<template>
+	<li>
+		<div class="card">
+			<div class="header">
+				<img :src="folderIcon" alt="" />
+				<div class="title">
+					<h4>{{ folder.attributes.name }}</h4>
+					<p>{{ folder.type }}</p>
+				</div>
 			</div>
-			<div>
-				<p><span>Last updated at</span></p>
-				<p>{{getDate(folder.attributes.updated_at)}}</p>
+			<div class="info">
+				<div class="project-counter">
+					<p><span>total projects</span></p>
+					<p>{{ folder.attributes.total_projects }}</p>
+				</div>
+				<div class="updated">
+					<p><span>Last updated at</span></p>
+					<p>{{ getDate(folder.attributes.updated_at) }}</p>
+				</div>
 			</div>
 		</div>
-  </div>
+	</li>
 </template>
 
 <script>
@@ -44,11 +46,11 @@ export default {
 .card {
 	background: rgba(255, 255, 255, 0.8);
 	color: #233b40;
-	height: 25rem;
-	max-width: 29rem;
+	height: 18rem;
+	width: 35rem;
 	flex: 1 1 30rem;
 	margin: 2rem 3rem;
-	padding: 2rem 2.5rem;
+	padding: 2rem;
 	border-radius: 2rem;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
 
@@ -60,13 +62,17 @@ export default {
 	}
 
 	.info {
-		height: 15rem;
+		min-height: 8rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
-		text-align: end;
+
 		span {
 			font-weight: bold;
+		}
+
+		.updated {
+			text-align: end;
 		}
 	}
 }
