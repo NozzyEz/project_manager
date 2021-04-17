@@ -86,6 +86,7 @@ button {
   border: none;
   border-radius: 1.5rem;
   transition: all 0.5s ease;
+  cursor: pointer;
   &:focus {
     outline: none;
   }

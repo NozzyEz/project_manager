@@ -1,6 +1,6 @@
 <template>
   <div class="overlay" @click="closeFolder()">
-    <div class="card folder">
+    <div class="card folder" v-if="loaded">
       <div class="header">
         <h3>{{ getActiveFolder.attributes.name }}</h3>
         <h4>{{ folderID }}</h4>
@@ -35,8 +35,14 @@ export default {
   components: {
     ProjectItem
   },
+
   props: {
     folderID: String
+  },
+  data() {
+    return {
+      loaded: false
+    };
   },
   methods: {
     ...mapActions(["fetchSingleFolder"]),
@@ -51,8 +57,9 @@ export default {
   computed: {
     ...mapGetters(["getActiveFolder", "getFolderProjects"])
   },
-  mounted() {
-    this.fetchSingleFolder(this.folderID);
+  async mounted() {
+    await this.fetchSingleFolder(this.folderID);
+    this.loaded = true;
   }
 };
 </script>
