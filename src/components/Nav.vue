@@ -1,8 +1,8 @@
-<template lang="">
-<header>
-    <h1>My Workspace</h1>
-    <button>+ Create New Project</button>
-</header>
+<template>
+	<header>
+		<h1>My Workspace</h1>
+		<button>+ Create New Project</button>
+	</header>
 </template>
 
 <script>

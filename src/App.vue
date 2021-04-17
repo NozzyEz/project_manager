@@ -9,14 +9,14 @@
 import Nav from "./components/Nav";
 import { mapActions } from "vuex";
 export default {
-	components: {
-		Nav
-	},
-	methods: { ...mapActions(["fetchToken"]) },
-	created() {
-		this.fetchToken();
-		console.log(localStorage.getItem("authToken"));
-	}
+  components: {
+    Nav
+  },
+  methods: { ...mapActions(["fetchToken"]) },
+  created() {
+    this.fetchToken();
+    console.log(localStorage.getItem("authToken"));
+  }
 };
 </script>
 
