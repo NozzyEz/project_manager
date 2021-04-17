@@ -77,6 +77,14 @@ button {
   padding: 1.5rem 2.5rem;
   border: none;
   border-radius: 1.5rem;
+  transition: all 0.5s ease;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    color: rgb(0, 128, 113);
+    background-color: white;
+  }
 }
 
 span {

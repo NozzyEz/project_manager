@@ -12,12 +12,15 @@
         <p><span>updated at:</span></p>
         <p>{{ getDate(getActiveFolder.attributes.updated_at) }}</p>
       </div>
-      <div class="projects">
-        <ProjectItem
-          v-for="project in getFolderProjects"
-          :key="project.id"
-          :project="project"
-        />
+      <div class="projects-container">
+        <h4>Projects</h4>
+        <div class="projects">
+          <ProjectItem
+            v-for="project in getFolderProjects"
+            :key="project.id"
+            :project="project"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -71,9 +74,16 @@ export default {
       height: 95%;
       overflow-y: scroll;
       background: rgba(255, 255, 255, 0.95);
+      /* display: flex;
+      flex-direction: column; */
+    }
+    .projects-container {
+      margin-top: 2.5rem;
     }
     .projects {
       display: grid;
+      grid-template-columns: repeat(auto-fill, 42rem);
+      justify-content: space-between;
     }
   }
 }

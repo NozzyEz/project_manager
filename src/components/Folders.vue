@@ -33,11 +33,12 @@ export default {
   },
   methods: {
     ...mapActions(["fetchFolders"]),
-    //TODO Would be nice if this is animated
     scrubFolders(direction) {
       const folders = document.getElementById("folder-container");
-      if (direction === "pos") folders.scrollBy(410, 0);
-      if (direction === "neg") folders.scrollBy(-410, 0);
+      if (direction === "pos")
+        folders.scrollBy({ top: 0, left: 820, behavior: "smooth" });
+      if (direction === "neg")
+        folders.scrollBy({ top: 0, left: -820, behavior: "smooth" });
     }
   },
   computed: mapGetters(["allFolders"]),
