@@ -3,11 +3,13 @@ import axios from "axios";
 const state = {
   folders: [],
   activeFolder: {},
+  folderProjects: [],
 };
 
 const getters = {
   allFolders: state => state.folders,
   getActiveFolder: state => state.activeFolder,
+  getFolderProjects: state => state.folderProjects,
 };
 
 const actions = {
@@ -34,7 +36,7 @@ const actions = {
         },
       });
       // console.log(response.data.data);
-      commit("setActiveFolder", response.data.data);
+      commit("setActiveFolder", response.data);
     } catch (err) {
       console.log(err);
     }
@@ -45,8 +47,9 @@ const mutations = {
   setFolders: (state, folders) => {
     state.folders = folders;
   },
-  setActiveFolder: (state, folder) => {
-    state.activeFolder = folder;
+  setActiveFolder: (state, data) => {
+    state.activeFolder = data.data;
+    state.folderProjects = data.included;
   },
 
   addNewFolder: (state, folder) => {

@@ -48,18 +48,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.header {
-  margin-bottom: 2rem;
-}
-.info {
-  margin-bottom: 2rem;
-  min-height: 50%;
-}
-.lang {
-  display: flex;
-  justify-content: space-between;
-  .lang-to {
-    text-align: end;
+.card {
+  max-width: 35rem;
+  .header {
+    margin-bottom: 2rem;
+  }
+  .info {
+    margin-bottom: 2rem;
+    min-height: 50%;
+  }
+  .lang {
+    display: flex;
+    justify-content: space-between;
+    .lang-to {
+      text-align: end;
+    }
   }
 }
 </style>

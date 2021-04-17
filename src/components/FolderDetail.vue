@@ -1,16 +1,37 @@
 <template>
   <div class="overlay" @click="closeFolder()">
-    <div class="card">
-      <h3>{{ getActiveFolder.attributes.name }}</h3>
-      <h4>{{ folderID }}</h4>
+    <div class="card folder">
+      <div class="header">
+        <h3>{{ getActiveFolder.attributes.name }}</h3>
+        <h4>{{ folderID }}</h4>
+        <h4>Projects: {{ getActiveFolder.attributes.total_projects }}</h4>
+      </div>
+      <div class="info">
+        <p><span>Created at:</span></p>
+        <p>{{ getDate(getActiveFolder.attributes.created_at) }}</p>
+        <p><span>updated at:</span></p>
+        <p>{{ getDate(getActiveFolder.attributes.updated_at) }}</p>
+      </div>
+      <div class="projects">
+        <ProjectItem
+          v-for="project in getFolderProjects"
+          :key="project.id"
+          :project="project"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import ProjectItem from "./ProjectItem";
+import moment from "moment";
 export default {
   name: "FolderDetail",
+  components: {
+    ProjectItem
+  },
   props: {
     folderID: String
   },
@@ -19,9 +40,14 @@ export default {
     closeFolder() {
       this.$emit("show-folder");
       document.body.style.overflow = "auto";
+    },
+    getDate(date) {
+      return moment(date).format("DD-MM-YYYY HH:mm");
     }
   },
-  computed: mapGetters(["getActiveFolder"]),
+  computed: {
+    ...mapGetters(["getActiveFolder", "getFolderProjects"])
+  },
   mounted() {
     this.fetchSingleFolder(this.folderID);
   }
@@ -39,5 +65,16 @@ export default {
   justify-content: center;
   align-items: center;
   background: rgba($color: #000000, $alpha: 0.7);
+  .card {
+    &.folder {
+      max-width: 80%;
+      height: 95%;
+      overflow-y: scroll;
+      background: rgba(255, 255, 255, 0.95);
+    }
+    .projects {
+      display: grid;
+    }
+  }
 }
 </style>

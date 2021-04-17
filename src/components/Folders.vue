@@ -4,7 +4,7 @@
       <h3>Folders</h3>
       <button>Create new</button>
     </div>
-    <ul class="container">
+    <ul id="folder-container" class="container">
       <FolderItem
         v-for="folder in allFolders"
         :key="folder.id"
@@ -12,6 +12,14 @@
         @show-folder="$emit('show-folder', folder.id)"
       />
     </ul>
+    <div class="scroll-btns">
+      <button @click="scrubFolders('neg')">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button @click="scrubFolders('pos')">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -24,7 +32,13 @@ export default {
     FolderItem
   },
   methods: {
-    ...mapActions(["fetchFolders"])
+    ...mapActions(["fetchFolders"]),
+    //TODO Would be nice if this is animated
+    scrubFolders(direction) {
+      const folders = document.getElementById("folder-container");
+      if (direction === "pos") folders.scrollBy(410, 0);
+      if (direction === "neg") folders.scrollBy(-410, 0);
+    }
   },
   computed: mapGetters(["allFolders"]),
   created() {
@@ -54,6 +68,18 @@ export default {
     grid-auto-columns: calc(25% -3rem);
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+  }
+  .scroll-btns {
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background-color: transparent;
+
+      margin: 0rem 0.5rem;
+
+      border-radius: 0;
+      padding: 1rem;
+    }
   }
 }
 </style>

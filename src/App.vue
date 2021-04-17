@@ -87,7 +87,7 @@ span {
   background: rgba(255, 255, 255, 0.8);
   color: #233b40;
   height: 40rem;
-  max-width: 40rem;
+  /* max-width: 40rem; */
   flex: 1 1 50rem;
   margin: 2rem 3rem;
   padding: 2rem;
