@@ -36,9 +36,9 @@ export default {
     scrubFolders(direction) {
       const folders = document.getElementById("folder-container");
       if (direction === "pos")
-        folders.scrollBy({ top: 0, left: 820, behavior: "smooth" });
+        folders.scrollBy({ top: 0, left: 1230, behavior: "smooth" });
       if (direction === "neg")
-        folders.scrollBy({ top: 0, left: -820, behavior: "smooth" });
+        folders.scrollBy({ top: 0, left: -1230, behavior: "smooth" });
     },
     toggleCreate() {
       this.$emit("toggle-create-new");

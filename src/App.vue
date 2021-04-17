@@ -42,7 +42,7 @@ export default {
   },
   created() {
     this.fetchToken();
-    console.log(localStorage.getItem("authToken"));
+    // console.log(localStorage.getItem("authToken"));
   }
 };
 </script>
