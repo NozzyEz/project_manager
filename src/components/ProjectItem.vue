@@ -48,32 +48,18 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.card {
-  background: rgba(255, 255, 255, 0.8);
-  color: #233b40;
-  height: 40rem;
-  max-width: 40rem;
-  flex: 1 1 50rem;
-  margin: 2rem 3rem;
-  padding: 2rem;
-  border-radius: 2rem;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-  span {
-    font-weight: bold;
-  }
-  .header {
-    margin-bottom: 2rem;
-  }
-  .info {
-    margin-bottom: 2rem;
-    min-height: 50%;
-  }
-  .lang {
-    display: flex;
-    justify-content: space-between;
-    .lang-to {
-      text-align: end;
-    }
+.header {
+  margin-bottom: 2rem;
+}
+.info {
+  margin-bottom: 2rem;
+  min-height: 50%;
+}
+.lang {
+  display: flex;
+  justify-content: space-between;
+  .lang-to {
+    text-align: end;
   }
 }
 </style>

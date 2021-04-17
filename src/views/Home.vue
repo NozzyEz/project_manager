@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <Folders />
+    <Folders @show-folder="showFolder" />
     <Projects />
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   components: {
     Projects,
     Folders
+  },
+  methods: {
+    showFolder(id) {
+      this.$emit("show-folder", id);
+    }
   }
 };
 </script>
@@ -25,7 +30,7 @@ export default {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  /* justify-content: flex-start; */
+  /* align-items: flex-start; */
 }
 </style>

@@ -29,18 +29,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 30rem;
+  display: grid;
+
   .title-bar {
-    align-self: flex-start;
+    /* align-self: flex-start; */
   }
   .container {
     padding-top: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
   }
