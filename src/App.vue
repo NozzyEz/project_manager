@@ -91,7 +91,7 @@ button {
   }
   &:hover {
     color: rgb(0, 128, 113);
-    background-color: white;
+    background-color: #e5f5f8;
   }
 }
 
