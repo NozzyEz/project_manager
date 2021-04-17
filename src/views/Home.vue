@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <Folders @show-folder="showFolder" />
+    <Folders @show-folder="showFolder" @toggle-create-new="toggleCreate()" />
     <Projects />
   </div>
 </template>
@@ -17,6 +17,9 @@ export default {
   methods: {
     showFolder(id) {
       this.$emit("show-folder", id);
+    },
+    toggleCreate() {
+      this.$emit("toggle-create-new");
     }
   }
 };

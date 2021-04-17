@@ -6,7 +6,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Nav"
+};
 </script>
 
 <style lang="scss">

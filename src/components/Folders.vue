@@ -2,7 +2,7 @@
   <div class="folders">
     <div class="title-bar">
       <h3>Folders</h3>
-      <button>Create new</button>
+      <button @click="toggleCreate()">Create new</button>
     </div>
     <ul id="folder-container" class="container">
       <FolderItem
@@ -39,6 +39,9 @@ export default {
         folders.scrollBy({ top: 0, left: 820, behavior: "smooth" });
       if (direction === "neg")
         folders.scrollBy({ top: 0, left: -820, behavior: "smooth" });
+    },
+    toggleCreate() {
+      this.$emit("toggle-create-new");
     }
   },
   computed: mapGetters(["allFolders"]),

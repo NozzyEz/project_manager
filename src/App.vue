@@ -6,21 +6,25 @@
       v-if="folderDetailView"
       :folderID="activeFolder"
     />
-    <router-view @show-folder="showFolder" />
+    <CreateNewFolder @toggle-create-new="toggleCreate" v-if="showCreateNew" />
+    <router-view @show-folder="showFolder" @toggle-create-new="toggleCreate" />
   </div>
 </template>
 
 <script>
 import Nav from "./components/Nav";
 import FolderDetail from "./components/FolderDetail";
+import CreateNewFolder from "./components/CreateNewFolder";
 import { mapActions } from "vuex";
 export default {
   components: {
     Nav,
-    FolderDetail
+    FolderDetail,
+    CreateNewFolder
   },
   data() {
     return {
+      showCreateNew: false,
       folderDetailView: false,
       activeFolder: undefined
     };
@@ -30,6 +34,10 @@ export default {
     showFolder(id) {
       this.activeFolder = id;
       this.folderDetailView = !this.folderDetailView;
+    },
+    toggleCreate() {
+      // console.log("toggle create called");
+      this.showCreateNew = !this.showCreateNew;
     }
   },
   created() {
