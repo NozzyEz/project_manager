@@ -77,7 +77,7 @@ export default {
   background: rgba($color: #000000, $alpha: 0.7);
   .card {
     &.folder {
-      max-width: 80%;
+      max-width: 70%;
       height: 95%;
       overflow-y: scroll;
       background: rgba(255, 255, 255, 0.95);
@@ -89,8 +89,8 @@ export default {
     }
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 42rem);
-      justify-content: space-between;
+      grid-template-columns: repeat(auto-fit, 33%);
+      justify-content: flex-start;
     }
   }
 }

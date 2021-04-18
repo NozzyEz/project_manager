@@ -1,6 +1,12 @@
 <template>
   <div class="overlay" @click="closeDialogue()">
-    <div class="card dialogue"></div>
+    <div class="card dialogue">
+      <h3>Create new folder</h3>
+      <form>
+        <input type="text" placeholder="Folder name" />
+        <button>Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -15,6 +21,7 @@ export default {
       this.$emit("toggle-create-new");
       document.body.style.overflow = "auto";
     }
+    // TODO Create folder on server and reflect in UI
     // getDate(date) {
     //   return moment(date).format("DD-MM-YYYY HH:mm");
     // }
@@ -41,18 +48,27 @@ export default {
   background: rgba($color: #000000, $alpha: 0.7);
   .card {
     &.dialogue {
-      max-width: 50%;
-      height: 50%;
+      padding: 10rem;
+      max-width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 40%;
       overflow-y: scroll;
-      background: rgba(255, 255, 255, 0.95);
-    }
-    .projects-container {
-      margin-top: 2.5rem;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 42rem);
-      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.9);
+      h3 {
+        align-self: start;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        input {
+          margin: 2rem 0rem;
+          font-size: 2.4rem;
+        }
+      }
     }
   }
 }

@@ -30,7 +30,9 @@
         </div>
       </div>
     </div>
-    <div class="status"></div>
+    <div class="status">
+      <span>SHOW STATUS</span>
+    </div>
   </div>
 </template>
 <script>
@@ -64,6 +66,9 @@ export default {
     .lang-to {
       text-align: end;
     }
+  }
+  .status {
+    text-align: center;
   }
 }
 </style>

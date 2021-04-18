@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Nav />
+    <Nav @sign-out="logUserOut()" />
     <FolderDetail
       @show-folder="showFolder()"
       v-if="folderDetailView"
@@ -34,10 +34,16 @@ export default {
     showFolder(id) {
       this.activeFolder = id;
       this.folderDetailView = !this.folderDetailView;
+      if (this.folderDetailView) document.body.style.overflow = "hidden";
     },
     toggleCreate() {
       // console.log("toggle create called");
       this.showCreateNew = !this.showCreateNew;
+      if (this.showCreateNew) document.body.style.overflow = "hidden";
+    },
+    logUserOut() {
+      // TODO Hook this up to delete token from state and localStorage
+      console.log("logging user out");
     }
   },
   created() {

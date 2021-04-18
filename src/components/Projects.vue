@@ -31,9 +31,6 @@ export default {
 .projects {
   display: grid;
 
-  .title-bar {
-    /* align-self: flex-start; */
-  }
   .container {
     padding-top: 2rem;
     display: flex;

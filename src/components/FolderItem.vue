@@ -41,7 +41,6 @@ export default {
     showFolder(id) {
       console.log("show folder");
       this.$emit("show-folder", id);
-      document.body.style.overflow = "hidden";
     }
   }
 };

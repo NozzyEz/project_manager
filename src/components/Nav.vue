@@ -1,13 +1,21 @@
 <template>
   <header>
     <h1>My Workspace</h1>
-    <button>+ Create New Project</button>
+    <div class="btns">
+      <button>+ Create New Project</button>
+      <button @click="signOut()"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
   </header>
 </template>
 
 <script>
 export default {
-  name: "Nav"
+  name: "Nav",
+  methods: {
+    signOut() {
+      this.$emit("sign-out");
+    }
+  }
 };
 </script>
 
@@ -24,8 +32,11 @@ header {
 
   background: linear-gradient(90deg, #94a4aa, #e5f5f8);
 
-  button:hover {
-    border: 1px solid rgb(0, 128, 113);
+  button {
+    margin-left: 1rem;
+    &:hover {
+      border: 1px solid rgb(0, 128, 113);
+    }
   }
 }
 </style>

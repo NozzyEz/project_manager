@@ -28,7 +28,7 @@ export default {
 <style lang="scss">
 .app-container {
   padding: 5rem;
-  background: linear-gradient(150deg, #233b40, #47767f);
+  background: linear-gradient(150deg, #18292c, #47767f);
   min-height: 92vh;
   color: white;
   display: flex;
