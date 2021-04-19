@@ -207,8 +207,10 @@ const actions = {
       });
       // console.log(response.data.data);
       commit("setProjects", response.data.data);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      if (error.response) console.log(error.response);
+      if (error.request) console.log(error.request);
+      if (error.message) console.log("Error", error.message);
     }
   },
 };

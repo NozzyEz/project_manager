@@ -23,8 +23,10 @@ const actions = {
       });
       // console.log(response.data.data);
       commit("setFolders", response.data.data);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      if (error.response) console.log(error.response);
+      if (error.request) console.log(error.request);
+      if (error.message) console.log("Error", error.message);
     }
   },
   async fetchSingleFolder({commit, rootGetters}, id) {
@@ -37,8 +39,10 @@ const actions = {
       });
       // console.log(response.data.data);
       commit("setActiveFolder", response.data);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      if (error.response) console.log(error.response);
+      if (error.request) console.log(error.request);
+      if (error.message) console.log("Error", error.message);
     }
   },
   async addNewFolder({commit, rootGetters}, payload) {
@@ -64,13 +68,9 @@ const actions = {
       console.log(response.data);
       commit("addNewFolder", response.data.data);
     } catch (error) {
-      if (error.response) {
-        console.log(error.response);
-      } else if (error.request) {
-        console.log(error.request);
-      } else {
-        console.log("Error", error.message);
-      }
+      if (error.response) console.log(error.response);
+      if (error.request) console.log(error.request);
+      if (error.message) console.log("Error", error.message);
     }
   },
 };

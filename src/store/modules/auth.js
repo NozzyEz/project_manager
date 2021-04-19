@@ -35,8 +35,10 @@ const actions = {
         });
 
         commit("setAccessToken", response.data.access_token);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        if (error.response) console.log(error.response);
+        if (error.request) console.log(error.request);
+        if (error.message) console.log("Error", error.message);
       }
     }
   },
