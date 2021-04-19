@@ -96,5 +96,8 @@ export default {
   .title-bar {
     margin: 1rem;
   }
+  .scroll-btns {
+    display: none !important;
+  }
 }
 </style>
