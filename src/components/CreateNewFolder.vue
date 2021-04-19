@@ -1,5 +1,5 @@
 <template>
-  <div class="overlay" @click="closeDialogue()">
+  <div class="overlay">
     <div class="card dialogue">
       <div class="btn">
         <button @click="closeDialogue()"><i class="fas fa-times"></i></button>
@@ -7,8 +7,8 @@
       <div class="content">
         <h3>Create new folder</h3>
         <form>
-          <input type="text" placeholder="Folder name" />
-          <button>Submit</button>
+          <input type="text" placeholder="Folder name" v-model="folderName" />
+          <button @click="createFolder">Submit</button>
         </form>
       </div>
     </div>
@@ -16,27 +16,32 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 // import ProjectItem from "./ProjectItem";
 // import moment from "moment";
 export default {
   name: "CreateNewFolder",
+  data() {
+    return {
+      folderName: ""
+    };
+  },
   methods: {
+    ...mapActions(["addNewFolder"]),
     closeDialogue() {
       this.$emit("toggle-create-new");
       document.body.style.overflow = "auto";
-    }
+    },
     // TODO Create folder on server and reflect in UI
-    // getDate(date) {
-    //   return moment(date).format("DD-MM-YYYY HH:mm");
-    // }
+    async createFolder(e) {
+      e.preventDefault();
+
+      if (this.folderName) {
+        await this.addNewFolder(this.folderName);
+        this.closeDialogue();
+      }
+    }
   }
-  // computed: {
-  //   ...mapGetters(["getActiveFolder", "getFolderProjects"])
-  // },
-  // mounted() {
-  //   this.fetchSingleFolder(this.folderID);
-  // }
 };
 </script>
 

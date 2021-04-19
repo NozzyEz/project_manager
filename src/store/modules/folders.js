@@ -41,6 +41,38 @@ const actions = {
       console.log(err);
     }
   },
+  async addNewFolder({commit, rootGetters}, payload) {
+    console.log(payload);
+    try {
+      const response = await axios.post(
+        rootGetters.getFoldersURL,
+        {
+          data: {
+            type: "project-folder",
+            attributes: {
+              name: payload,
+            },
+          },
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + rootGetters.getAccessToken,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.data);
+      commit("addNewFolder", response.data.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log("Error", error.message);
+      }
+    }
+  },
 };
 
 const mutations = {
@@ -53,6 +85,7 @@ const mutations = {
   },
 
   addNewFolder: (state, folder) => {
+    console.log(folder);
     state.folders.unshift(folder);
   },
 };

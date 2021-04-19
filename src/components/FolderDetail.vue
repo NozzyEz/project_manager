@@ -1,5 +1,5 @@
 <template>
-  <div class="overlay" @click="closeFolder()">
+  <div class="overlay">
     <div class="card folder" v-if="loaded">
       <div class="header">
         <h3>{{ getActiveFolder.attributes.name }}</h3>
