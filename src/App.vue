@@ -1,13 +1,18 @@
 <template>
   <div class="app">
     <Nav @sign-out="logUserOut()" />
+    <SignIn v-if="!isLoggedIn" @sign-in="logUserIn" />
     <FolderDetail
       @show-folder="showFolder()"
       v-if="folderDetailView"
       :folderID="activeFolder"
     />
     <CreateNewFolder @toggle-create-new="toggleCreate" v-if="showCreateNew" />
-    <router-view @show-folder="showFolder" @toggle-create-new="toggleCreate" />
+    <router-view
+      @show-folder="showFolder"
+      @toggle-create-new="toggleCreate"
+      v-if="isLoggedIn"
+    />
   </div>
 </template>
 
@@ -15,12 +20,14 @@
 import Nav from "./components/Nav";
 import FolderDetail from "./components/FolderDetail";
 import CreateNewFolder from "./components/CreateNewFolder";
+import SignIn from "./components/SignIn";
 import { mapActions } from "vuex";
 export default {
   components: {
     Nav,
     FolderDetail,
-    CreateNewFolder
+    CreateNewFolder,
+    SignIn
   },
   data() {
     return {
@@ -31,7 +38,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchToken"]),
+    ...mapActions(["authenticateUser", "refreshUser", "clearToken"]),
     showFolder(id) {
       this.activeFolder = id;
       this.folderDetailView = !this.folderDetailView;
@@ -45,11 +52,19 @@ export default {
     logUserOut() {
       // TODO Hook this up to delete token from state and localStorage
       console.log("logging user out");
+      this.clearToken();
+      this.isLoggedIn = false;
+    },
+    async logUserIn(userEmail, password) {
+      console.log("logging user in");
+      const payload = { userEmail, password };
+      await this.authenticateUser(payload);
+      if (localStorage.getItem("authToken")) this.isLoggedIn = true;
     }
   },
   created() {
-    this.fetchToken();
-    // console.log(localStorage.getItem("authToken"));
+    this.refreshUser();
+    if (localStorage.getItem("authToken")) this.isLoggedIn = true;
   }
 };
 </script>
