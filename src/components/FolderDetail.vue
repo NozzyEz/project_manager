@@ -72,8 +72,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,6 +107,15 @@ export default {
       grid-template-columns: repeat(auto-fit, minmax(35rem, 40rem));
       justify-content: center;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    min-width: 95%;
+  }
+  .projects {
+    /* justify-content: flex-start; */
   }
 }
 </style>
