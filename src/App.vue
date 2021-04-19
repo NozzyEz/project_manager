@@ -8,7 +8,7 @@
       :folderID="activeFolder"
     />
     <CreateNewFolder @toggle-create-new="toggleCreate" v-if="showCreateNew" />
-    <router-view
+    <Home
       @show-folder="showFolder"
       @toggle-create-new="toggleCreate"
       v-if="isLoggedIn"
@@ -21,10 +21,12 @@ import Nav from "./components/Nav";
 import FolderDetail from "./components/FolderDetail";
 import CreateNewFolder from "./components/CreateNewFolder";
 import SignIn from "./components/SignIn";
+import Home from "./components/Home";
 import { mapActions } from "vuex";
 export default {
   components: {
     Nav,
+    Home,
     FolderDetail,
     CreateNewFolder,
     SignIn
