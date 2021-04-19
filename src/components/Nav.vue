@@ -34,6 +34,7 @@ header {
 
   button {
     margin-left: 1rem;
+    border: 1px solid #e5f5f8;
     &:hover {
       border: 1px solid rgb(0, 128, 113);
     }

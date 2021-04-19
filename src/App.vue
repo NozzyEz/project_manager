@@ -26,7 +26,8 @@ export default {
     return {
       showCreateNew: false,
       folderDetailView: false,
-      activeFolder: undefined
+      activeFolder: undefined,
+      isLoggedIn: false
     };
   },
   methods: {

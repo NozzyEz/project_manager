@@ -3,10 +3,10 @@
     <div class="card folder" v-if="loaded">
       <div class="header">
         <h3>{{ getActiveFolder.attributes.name }}</h3>
-        <h4>{{ folderID }}</h4>
-        <h4>Projects: {{ getActiveFolder.attributes.total_projects }}</h4>
+        <button @click="closeFolder()"><i class="fas fa-times"></i></button>
       </div>
       <div class="info">
+        <h4>Projects: {{ getActiveFolder.attributes.total_projects }}</h4>
         <p><span>Created at:</span></p>
         <p>{{ getDate(getActiveFolder.attributes.created_at) }}</p>
         <p><span>updated at:</span></p>
@@ -76,6 +76,18 @@ export default {
   align-items: center;
   background: rgba($color: #000000, $alpha: 0.7);
   .card {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      button {
+        border: 1px solid white;
+
+        &:hover {
+          border: 1px solid rgb(0, 128, 113);
+          /* font-size: 2rem; */
+        }
+      }
+    }
     &.folder {
       max-width: 70%;
       height: 95%;

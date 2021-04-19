@@ -9,14 +9,39 @@
         }}</a>
       </p>
     </div>
-    <div class="info">
-      <p><span>Date of Order</span></p>
-      <p>{{ getDate(project.attributes.created_at) }}</p>
-      <p><span>Price</span></p>
+    <div class="customer-info">
+      <h4>customer</h4>
       <p>
-        {{ project.attributes.price.total }}
-        {{ project.attributes.price.currency }}
+        <span>name:</span>
+        {{ project.attributes.customer.attributes.first_name }}
+        {{ project.attributes.customer.attributes.last_name }}
       </p>
+      <p>
+        <span>phone:</span>{{ project.attributes.customer.attributes.phone }}
+      </p>
+      <p>
+        <span>email:</span> {{ project.attributes.customer.attributes.email }}
+      </p>
+    </div>
+    <div class="info">
+      <div>
+        <p><span>Date of Order</span></p>
+        <p>{{ getDate(project.attributes.created_at) }}</p>
+        <p><span>Price</span></p>
+        <p>
+          {{ project.attributes.price.total }}
+          {{ project.attributes.price.currency }}
+        </p>
+      </div>
+      <div class="info-grp-2">
+        <p><span>Workflow</span></p>
+        <p>{{ project.attributes.workflow }}</p>
+        <p><span>Payment</span></p>
+        <p>
+          {{ project.attributes.payment.amount }}
+          {{ project.attributes.payment.currency }}
+        </p>
+      </div>
     </div>
     <div class="lang">
       <div class="lang-from">
@@ -31,7 +56,7 @@
       </div>
     </div>
     <div class="status">
-      <span>SHOW STATUS</span>
+      <p><span>Status:</span> {{ project.attributes.status }}</p>
     </div>
   </div>
 </template>
@@ -56,9 +81,16 @@ export default {
   .header {
     margin-bottom: 2rem;
   }
+  .customer-info {
+    margin-bottom: 2rem;
+  }
   .info {
     margin-bottom: 2rem;
-    min-height: 50%;
+    display: flex;
+    justify-content: space-between;
+    .info-grp-2 {
+      text-align: end;
+    }
   }
   .lang {
     display: flex;

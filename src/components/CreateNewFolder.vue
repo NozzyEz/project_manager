@@ -1,11 +1,16 @@
 <template>
   <div class="overlay" @click="closeDialogue()">
     <div class="card dialogue">
-      <h3>Create new folder</h3>
-      <form>
-        <input type="text" placeholder="Folder name" />
-        <button>Submit</button>
-      </form>
+      <div class="btn">
+        <button @click="closeDialogue()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="content">
+        <h3>Create new folder</h3>
+        <form>
+          <input type="text" placeholder="Folder name" />
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -48,25 +53,40 @@ export default {
   background: rgba($color: #000000, $alpha: 0.7);
   .card {
     &.dialogue {
-      padding: 10rem;
       max-width: 30%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       height: 40%;
-      overflow-y: scroll;
       background: rgba(255, 255, 255, 0.9);
-      h3 {
-        align-self: start;
-      }
-      form {
+      .btn {
         display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+      button {
+        border: 1px solid white;
+
+        &:hover {
+          border: 1px solid rgb(0, 128, 113);
+          /* font-size: 2rem; */
+        }
+      }
+      .content {
+        padding: 2rem 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        width: 100%;
-        input {
-          margin: 2rem 0rem;
-          font-size: 2.4rem;
+        overflow-y: scroll;
+        h3 {
+          align-self: start;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          input {
+            margin: 2rem 0rem;
+            font-size: 2.4rem;
+          }
         }
       }
     }
