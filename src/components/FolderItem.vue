@@ -65,7 +65,7 @@ export default {
   }
 
   .info {
-    min-height: 8rem;
+    /* min-height: 8rem; */
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -73,6 +73,13 @@ export default {
     .updated {
       text-align: end;
     }
+  }
+}
+@media screen and (max-width: 600px) {
+  .card {
+    padding-bottom: 2rem;
+    height: 15rem;
+    min-width: 30rem;
   }
 }
 </style>
