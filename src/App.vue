@@ -50,13 +50,12 @@ export default {
       if (this.showCreateNew) document.body.style.overflow = "hidden";
     },
     logUserOut() {
-      // TODO Hook this up to delete token from state and localStorage
-      console.log("logging user out");
+      // console.log("logging user out");
       this.clearToken();
       this.isLoggedIn = false;
     },
     async logUserIn(userEmail, password) {
-      console.log("logging user in");
+      // console.log("logging user in");
       const payload = { userEmail, password };
       await this.authenticateUser(payload);
       if (localStorage.getItem("authToken")) this.isLoggedIn = true;
@@ -80,6 +79,7 @@ html {
 }
 body {
   font-family: Helvetica, sans-serif;
+  background: #18292c;
 }
 h1 {
   font-size: 3rem;
