@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .folders {
   overflow-x: hidden;
-  width: 100%;
+  /* width: 100%; */
   min-height: 30rem;
   .title-bar {
     display: flex;

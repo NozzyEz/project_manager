@@ -143,5 +143,8 @@ span {
   html {
     font-size: 50%;
   }
+  .card {
+    margin: 2rem 0rem;
+  }
 }
 </style>
