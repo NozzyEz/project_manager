@@ -138,4 +138,10 @@ span {
   border-radius: 2rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
 }
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
 </style>

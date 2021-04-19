@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   height: 18rem;
-  width: 35rem;
+  min-width: 35rem;
   flex: 1 1 30rem;
   margin: 2rem 3rem;
   padding: 2rem;

@@ -71,7 +71,7 @@ export default {
     display: grid;
     /* grid-gap: 0.5rem; */
     grid-auto-flow: column;
-    grid-auto-columns: calc(25% -3rem);
+    /* grid-auto-columns: calc(25% -3rem); */
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
   }
@@ -86,6 +86,15 @@ export default {
       border-radius: 0;
       padding: 1rem;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    /* grid-auto-columns: calc(80%); */
+  }
+  .title-bar {
+    margin: 1rem;
   }
 }
 </style>

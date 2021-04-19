@@ -38,4 +38,9 @@ export default {
     /* align-items: flex-start; */
   }
 }
+@media screen and (max-width: 600px) {
+  .title-bar {
+    margin: 1rem;
+  }
+}
 </style>
