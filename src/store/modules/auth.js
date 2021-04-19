@@ -22,7 +22,7 @@ const getters = {
 const actions = {
   //* Auth user when logging in
   async authenticateUser({commit, state}, payload) {
-    console.log(payload);
+    // console.log(payload);
     if (localStorage.getItem("authToken")) {
       commit("setAccessToken", localStorage.getItem("authToken"));
     } else {
