@@ -29,14 +29,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .projects {
-  display: grid;
-
   .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 40rem));
     padding-top: 2rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    /* display: flex; */
+    justify-content: center;
+    /* align-items: flex-start; */
   }
 }
 </style>

@@ -59,8 +59,9 @@ export default {
   background: rgba($color: #000000, $alpha: 0.7);
   .card {
     &.dialogue {
-      max-width: 30%;
+      max-width: 70rem;
       height: 40%;
+
       background: rgba(255, 255, 255, 0.9);
       .btn {
         display: flex;

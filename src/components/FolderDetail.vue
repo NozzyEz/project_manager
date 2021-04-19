@@ -104,8 +104,8 @@ export default {
     }
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, 33%);
-      justify-content: flex-start;
+      grid-template-columns: repeat(auto-fit, minmax(35rem, 40rem));
+      justify-content: center;
     }
   }
 }
