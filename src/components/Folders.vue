@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     ...mapActions(["fetchFolders"]),
+    //* Function that allows up to use buttons for scrolling on the folder view instead of using trackpad
     scrubFolders(direction) {
       const folders = document.getElementById("folder-container");
       if (direction === "pos")
@@ -40,6 +41,7 @@ export default {
       if (direction === "neg")
         folders.scrollBy({ top: 0, left: -1230, behavior: "smooth" });
     },
+    // * Emitter to App.vue to toggle the CreateNewFolder component
     toggleCreate() {
       this.$emit("toggle-create-new");
     }

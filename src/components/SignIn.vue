@@ -29,6 +29,7 @@ export default {
     };
   },
   methods: {
+    //* Emitter to App.vue to sign user in
     signIn(e) {
       e.preventDefault();
       this.$emit("sign-in", this.userEmail, this.password);

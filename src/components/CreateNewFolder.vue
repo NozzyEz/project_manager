@@ -17,8 +17,7 @@
 
 <script>
 import { mapActions } from "vuex";
-// import ProjectItem from "./ProjectItem";
-// import moment from "moment";
+
 export default {
   name: "CreateNewFolder",
   data() {
@@ -28,11 +27,13 @@ export default {
   },
   methods: {
     ...mapActions(["addNewFolder"]),
+    //* Emitter to App.vue to close the dialogue component and allow scrolling of main window
     closeDialogue() {
       this.$emit("toggle-create-new");
       document.body.style.overflow = "auto";
     },
-    // TODO Create folder on server and reflect in UI
+
+    //* Create a new folder if folder name is not empty
     async createFolder(e) {
       e.preventDefault();
 
@@ -71,7 +72,6 @@ export default {
 
         &:hover {
           border: 1px solid rgb(0, 128, 113);
-          /* font-size: 2rem; */
         }
       }
       .content {

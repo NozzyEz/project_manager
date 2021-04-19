@@ -20,6 +20,7 @@ const getters = {
 };
 
 const actions = {
+  //* Auth user when logging in
   async authenticateUser({commit, state}, payload) {
     console.log(payload);
     if (localStorage.getItem("authToken")) {
@@ -42,11 +43,14 @@ const actions = {
       }
     }
   },
+  //* adding token to state if it's in localStorage so user don't have to log back in
+  //! Ideally this would be handled by a cookie instead
   refreshUser({commit}) {
     if (localStorage.getItem("authToken")) {
       commit("setAccessToken", localStorage.getItem("authToken"));
     }
   },
+  //* remove token from state and localStorage when logging out
   clearToken({commit}) {
     commit("clearAccessToken");
   },

@@ -15,6 +15,7 @@ export default {
     Folders
   },
   methods: {
+    //* Emitters to App.vue to allow for rendering of dialogues
     showFolder(id) {
       this.$emit("show-folder", id);
     },

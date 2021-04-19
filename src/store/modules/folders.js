@@ -13,6 +13,7 @@ const getters = {
 };
 
 const actions = {
+  //* fetch all available folders once logged in
   async fetchFolders({commit, rootGetters}) {
     // console.log(localStorage.getItem("authToken"));
     try {
@@ -29,6 +30,7 @@ const actions = {
       if (error.message) console.log("Error", error.message);
     }
   },
+  //* fetch a single folder when a folder is clicked on in the UI
   async fetchSingleFolder({commit, rootGetters}, id) {
     // console.log(localStorage.getItem("authToken"));
     try {
@@ -45,6 +47,7 @@ const actions = {
       if (error.message) console.log("Error", error.message);
     }
   },
+  //* Add a new folder to the server and add the response to state so it's reflected in the UI
   async addNewFolder({commit, rootGetters}, payload) {
     console.log(payload);
     try {

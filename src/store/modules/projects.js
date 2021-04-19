@@ -197,6 +197,7 @@ const getters = {
 };
 
 const actions = {
+  //* Get all projects after we're logged in
   async fetchProjects({commit, rootGetters}) {
     // console.log(rootGetters.getpProjectsURL);
     try {

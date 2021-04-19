@@ -35,11 +35,13 @@ export default {
     folder: Object
   },
   methods: {
+    //* Helper function to format date time
     getDate(date) {
       return moment(date).format("DD-MM-YYYY HH:mm");
     },
+    //* Emitter to Folder.vue with the ID, so we can show the folder view
     showFolder(id) {
-      console.log("show folder");
+      // console.log("show folder");
       this.$emit("show-folder", id);
     }
   }

@@ -46,10 +46,12 @@ export default {
   },
   methods: {
     ...mapActions(["fetchSingleFolder"]),
+    //* Emitter to App.vue to remove this component and all scrolling of main window
     closeFolder() {
       this.$emit("show-folder");
       document.body.style.overflow = "auto";
     },
+    //* Helper function to format date time
     getDate(date) {
       return moment(date).format("DD-MM-YYYY HH:mm");
     }
@@ -58,6 +60,7 @@ export default {
     ...mapGetters(["getActiveFolder", "getFolderProjects"])
   },
   async mounted() {
+    // When view is mounted, load data and set loaded to true to allow rendering once ready
     await this.fetchSingleFolder(this.folderID);
     this.loaded = true;
   }

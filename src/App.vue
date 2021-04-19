@@ -39,21 +39,25 @@ export default {
   },
   methods: {
     ...mapActions(["authenticateUser", "refreshUser", "clearToken"]),
+    //* show FolderDetail component when triggered
     showFolder(id) {
       this.activeFolder = id;
       this.folderDetailView = !this.folderDetailView;
       if (this.folderDetailView) document.body.style.overflow = "hidden";
     },
+    //* show CreateNewFolder component when triggered
     toggleCreate() {
       // console.log("toggle create called");
       this.showCreateNew = !this.showCreateNew;
       if (this.showCreateNew) document.body.style.overflow = "hidden";
     },
+    //* Log user out
     logUserOut() {
       // console.log("logging user out");
       this.clearToken();
       this.isLoggedIn = false;
     },
+    //* Log user in
     async logUserIn(userEmail, password) {
       // console.log("logging user in");
       const payload = { userEmail, password };
@@ -126,7 +130,6 @@ span {
   background: rgba(255, 255, 255, 0.8);
   color: #233b40;
   height: 40rem;
-  /* max-width: 40rem; */
   flex: 1 1 50rem;
   margin: 2rem 3rem;
   padding: 2rem;

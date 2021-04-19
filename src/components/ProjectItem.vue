@@ -68,6 +68,7 @@ export default {
     project: Object
   },
   methods: {
+    // * Helper function to format date time
     getDate(date) {
       return moment(date).format("DD-MM-YYYY");
     }

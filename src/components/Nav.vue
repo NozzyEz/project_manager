@@ -12,6 +12,7 @@
 export default {
   name: "Nav",
   methods: {
+    //* Emitter to App.vue to log user out
     signOut() {
       this.$emit("sign-out");
     }
